@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+=======
 #include <iostream>
 using namespace std;
+>>>>>>> 38c6685fe17ad9e5de64eb7e87218d0a81a34603
 
+<<<<<<< HEAD
+
+=======
 int main() {
     string NomorKartu; // Tidak menggunakan integer karena sudah melebihi batas penyimpanan tipe integer di C++ sehingga menggunakan string karena string bisa menyimpan digit sebanyak apapun
     cout << "Masukkan nomor kartu digital: ";
@@ -20,4 +26,31 @@ int main() {
         cout << "Jenis kartu tidak dikenali." << endl;
         return 0;
     }
+    int jumlah = 0; //Menginisialisasi jumlah = 0
 
+    for (int i = panjang - 2; i >= 0; i -= 2) { //panjang-2 digunakan untuk memulai dari digit kedua dari belakang. i >= 0 digunakan untuk mengetahui apakah nilai i masih lebih besar atau sama dengan 0. jika iya, perulangan akan terus dilakukan.
+        int digit = NomorKartu[i] - '0'; //mengubah karakter menjadi angka (misal: '5' menjadi 5)
+        int hasil = digit * 2; //mengalikan tiap 2 digit terakhir dengan 2
+        if (hasil > 9) {
+            hasil = (hasil / 10) + (hasil % 10); //jika hasil kali tsb lebih dari 10, maka digit2nya dijumlahkan
+        }
+        jumlah += hasil; // jumlah = 0 + hasil
+    }
+
+    for (int i = panjang - 1; i >= 0; i -= 2) { //panjang-1 digunakan untuk mengambil digit terakhir. 1 -= 2 mengambil selang-seling dari belakang
+        int digit = NomorKartu[i] - '0'; //mengubah karakter menjadi angka
+        jumlah += digit; // hasil + digit
+    }
+
+    if (jumlah % 10 == 0) { //jika hasil penjumlahan keseluruhan habis dibagi 10, maka valid, sebaliknya.
+        cout << "Nomor kartu valid." << endl;
+        cout << "Jenis kartu: " << JenisKartu << endl;
+    } else {
+        cout << "Nomor kartu tidak valid." << endl;
+    }
+
+    return 0;
+}
+
+
+>>>>>>> 38c6685fe17ad9e5de64eb7e87218d0a81a34603
