@@ -10,12 +10,12 @@ int main() {
     string JenisKartu = ""; // Menginisialisasi JenisKartu sebagai string kemudian "" sebagai inisialisasi awal ke JenisKartu yaitu string kosong karen di awal program kita belum tau JenisKartu nya apa jadi setelah kita deteksi jenisnya berdasarkan panjang dan awalan baru kita isi
 
     if (panjang == 14 && NomorKartu.substr(0, 2) == "65") { // Digunakan untuk mengecek apakah panjang NomorKartu = 14 dan mengambil dua karakter pertama dari indeks 0 kemudian kita cek apakah dua karakter pertama tersebut 65 atau tidak. Operator && digunakan untuk memastikan kedua kondisi tersebut terpenuhi
-        JenisKartu = "NUSANTARA";
+        cout << "Tipe Kartu: NUSANTARA" <<endl;
     } else if (panjang == 16 && 
               (NomorKartu.substr(0, 2) == "77" || NomorKartu.substr(0, 2) == "78")) { // Digunakan untuk mengecek apakah panjang NomorKartu = 16 dan mengambil dua karakter pertama dari indeks 0 kemudian kita cek apakah dua karakter pertama tersebut 77 atau 78. Operator && digunakan untuk memastikan kedua kondisi tersebut terpenuhi
-        JenisKartu = "GARUDA";
+        cout << "Tipe Kartu: GARUDA" <<endl;
     } else if (panjang == 15 && NomorKartu.substr(0, 2) == "91") {// Digunakan untuk mengecek apakah panjang NomorKartu = 15 dan mengambil dua karakter pertama dari indeks 0 kemudian kita cek apakah dua karakter pertama tersebut 91 atau tidak. Operator && digunakan untuk memastikan kedua kondisi tersebut terpenuhi
-        JenisKartu = "MERDEKA";
+        cout << "Tipe Kartu: Merdeka" <<endl;
     } else {
         cout << "Jenis kartu tidak dikenali." << endl;
         return 0;
