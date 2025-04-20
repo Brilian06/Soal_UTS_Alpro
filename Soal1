@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-=======
 #include <iostream>
 using namespace std;
->>>>>>> 38c6685fe17ad9e5de64eb7e87218d0a81a34603
 
-<<<<<<< HEAD
-
-=======
 int main() {
     string NomorKartu; // Tidak menggunakan integer karena sudah melebihi batas penyimpanan tipe integer di C++ sehingga menggunakan string karena string bisa menyimpan digit sebanyak apapun
     cout << "Masukkan nomor kartu digital: ";
@@ -51,6 +45,3 @@ int main() {
 
     return 0;
 }
-
-
->>>>>>> 38c6685fe17ad9e5de64eb7e87218d0a81a34603
