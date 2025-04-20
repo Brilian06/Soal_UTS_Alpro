@@ -36,3 +36,4 @@ int main() {
 
     menitMasukTotal = jamMasuk * 60 + menitMasuk; // untuk mengubah jam menjadi menit
     menitKeluarTotal = (jamKeluar / 100) * 60 + (jamKeluar % 100);
+
