@@ -1,1 +1,38 @@
-//Kerjakan soal nomor 2 disini (Hapus komentar ini)
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+
+int main() {
+    string kodeParkir;
+    int jamKeluar;
+    int digit[10]; // untuk menyimpan tiap digit dari kodeParkir
+
+    int tipeKendaraan, jamMasuk, menitMasuk, lokasiParkir;
+    int menitMasukTotal, menitKeluarTotal, totalDurasi, totalJam;
+    int tarifPertama, tarifBerikutnya, biayaTotal;
+    string jenisKendaraan;
+
+    cout << "Masukkan kode parkir digital (10 digit): ";
+    cin >> kodeParkir;
+    cout << "Masukkan jam keluar (format HHMM): ";
+    cin >> jamKeluar;
+
+    if (kodeParkir.length() != 10) { // untuk mengecek apakah kodeParkir terdiri dari 10 digit atau tidak
+        cout << "Kode harus terdiri dari 10 digit.\n";
+        return 0;
+    }
+
+    for (int i = 0; i < 10; i++) {
+        digit[i] = kodeParkir[i] - '0'; // untuk mengonversi char ke integer
+    }
+
+
+    tipeKendaraan = digit[0] * 10 + digit[1];
+    jamMasuk = digit[2] * 10 + digit[3];
+    menitMasuk = digit[4] * 10 + digit[5];
+    lokasiParkir = digit[6] * 1000 + digit[7] * 100 + digit[8] * 10 + digit[9];
+
+
+    menitMasukTotal = jamMasuk * 60 + menitMasuk; // untuk mengubah jam menjadi menit
+    menitKeluarTotal = (jamKeluar / 100) * 60 + (jamKeluar % 100);
