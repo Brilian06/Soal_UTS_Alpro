@@ -1,1 +1,40 @@
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+
+int main() {
+    long long kodeTransaksi; // Long Long untuk dapat menyimpan angka yang lebih panjang
+    int angka[8], kodeHari, kodePelanggan, totalBelanja, totalPoin;
+    string namaHari, tipePelanggan;
+
+    cout << "Masukkan kode transaksi (8 digit): ";
+    cin >> kodeTransaksi;
+
+    for (int i = 7; i >= 0; i--) {
+        angka[i] = kodeTransaksi % 10; // kodeTransaksi % 10 digunakan untuk mengambil digit paling kanan
+        kodeTransaksi /= 10; // kodeTransaksi /= 10 digunakan untuk menghilangkan digit paling kanan
+    }
+
+
+    kodeHari = angka[0] * 10 + angka[1];
+    kodePelanggan = angka[2] * 10 + angka[3];
+    totalBelanja = angka[4] * 1000 + angka[5] * 100 + angka[6] * 10 + angka[7];
+
+    if (kodeHari == 1) 
+        {
+        namaHari = "Hari kerja";
+        }
+    else if (kodeHari == 2) 
+        { 
+        namaHari = "Akhir pekan";
+        }
+    else if (kodeHari == 3) 
+        { 
+        namaHari = "Hari libur nasional";
+        }
+    else {
+        cout << "Jenis hari tidak valid\n";
+        return 0;
+    }
+
