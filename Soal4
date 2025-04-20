@@ -1,1 +1,37 @@
-//Kerjakan soal nomor 4 disini (Hapus komentar ini)
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    string S;
+    
+    cin >> N; // N adalah variabel untuk menyimpan jumlah babak
+    cin >> S; // S adalah variabel untuk menyatakan urutan hasil tiap babak
+
+    int PoinA = 0, PoinB = 0; // untuk menyimpan total poin pemain A dan B
+    int StreakA = 0, StreakB = 0; // untuk menyimpan jumlah kemenangan beruntun untuk pemain A dan B
+
+    for (int i = 0; i < N; i++) {
+        char hasil = S[i]; // untuk mengambil karakter i dalam S
+
+        if (hasil == 'A') {
+            PoinA += 3; // untuk menambah 3 poin ke pemain A
+            StreakA++; // untuk menambah streak ke pemain A
+            StreakB = 0; // untuk mereset streak ke pemain B
+
+            if (StreakA == 3) {
+                PoinA += 2; // untuk menambahkan bonus poin ketika pemain A menang 3 kali beruntun
+                StreakA = 0; // untuk mereset streak setelah bonus
+            }
+
+        } else if (hasil == 'B') {
+            PoinB += 3;
+            StreakB++;
+            StreakA = 0;
+
+            if (StreakB == 3) {
+                PoinB += 2; // bonus
+                StreakB = 0; // reset streak setelah bonus
+            }
+
+        
