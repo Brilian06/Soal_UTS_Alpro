@@ -12,7 +12,7 @@ int main() {
     int StreakA = 0, StreakB = 0; // untuk menyimpan jumlah kemenangan beruntun untuk pemain A dan B
 
     for (int i = 0; i < N; i++) {
-        char hasil = S[i]; // untuk mengambil karakter i dalam S
+        char hasil = S[i]; // untuk mengambil karakter ke-i dalam S
 
         if (hasil == 'A') {
             PoinA += 3; // untuk menambah 3 poin ke pemain A
@@ -33,6 +33,7 @@ int main() {
                 PoinB += 2; // bonus
                 StreakB = 0; // reset streak setelah bonus
             }
+
         } else if (hasil == 'C') {  // Jika pertandingan seri
             PoinA += 1;            // Kedua tim dapat 1 poin
             PoinB += 1;
@@ -40,20 +41,22 @@ int main() {
             StreakB = 0;
         }
     }
-    }
 
-// Output skor akhir
+    // Output skor akhir
     cout << "Poin A: " << PoinA << endl;
     cout << "Poin B: " << PoinB << endl;
 
-// Menentukan pemenang
-if (PoinA > PoinB) {
-    cout << "Pemenangnya adalah pemain A" << endl;  
-    // Jika total poin pemain A lebih besar dari pemain B, maka A dinyatakan sebagai pemenang.
-} else if (PoinB > PoinA) {
-    cout << "Pemenangnya adalah pemain B" << endl;
-    // Jika total poin pemain B lebih besar dari pemain A, maka B dinyatakan sebagai pemenang.
-} else {
-    cout << "Hasil pertandingan Seri!" << endl;
-    // Jika poin keduanya sama, berarti pertandingan berakhir seri.
+    // Menentukan pemenang
+    if (PoinA > PoinB) {
+        cout << "Pemenangnya adalah pemain A" << endl;  
+        // Jika total poin pemain A lebih besar dari pemain B, maka A dinyatakan sebagai pemenang.
+    } else if (PoinB > PoinA) {
+        cout << "Pemenangnya adalah pemain B" << endl;
+        // Jika total poin pemain B lebih besar dari pemain A, maka B dinyatakan sebagai pemenang.
+    } else {
+        cout << "Hasil pertandingan Seri!" << endl;
+        // Jika poin keduanya sama, berarti pertandingan berakhir seri.
+    }
+
+    return 0;
 }
