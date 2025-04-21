@@ -37,3 +37,41 @@ int main() {
     menitMasukTotal = jamMasuk * 60 + menitMasuk; // untuk mengubah jam menjadi menit
     menitKeluarTotal = (jamKeluar / 100) * 60 + (jamKeluar % 100);
 
+    if (menitKeluarTotal < menitMasukTotal) { //Mengecek apakah menitKeluarTotal < menitMasukTotal. jika iya, berarti kendaraan keluar keesokan harinya, sehingga perlu ditambahkan 1440 menit
+        menitKeluarTotal += 1440; 
+    }
+
+    totalDurasi = menitKeluarTotal - menitMasukTotal; //Menghitung selisih waktu antara keluar dan masuk dalam satuan menit.
+    totalJam = totalDurasi / 60 + (totalDurasi % 60 != 0); //Mengubah total durasi dari menit ke jam dengan pembulatan ke atas.
+
+    if (tipeKendaraan == 10) { //Mengecek tipe kendaraan
+        jenisKendaraan = "Mobil Pribadi"; 
+        tarifPertama = 5000; //Tarif 1 jam pertama Rp 5000
+        tarifBerikutnya = 3000; // Tarif per jam berikutnya Rp 3000
+    } else if (tipeKendaraan == 20) { //dst..
+        jenisKendaraan = "Motor";
+        tarifPertama = 3000;
+        tarifBerikutnya = 2000;
+    } else if (tipeKendaraan == 30) {
+        jenisKendaraan = "Bus";
+        tarifPertama = 10000;
+        tarifBerikutnya = 7000;
+    } else {
+        cout << "Jenis kendaraan tidak dikenali.\n"; // Jika tipe kendaraan bukan 10, 20, atau 30, program berhenti
+        return 0;
+    }
+
+    biayaTotal = tarifPertama + (totalJam > 1 ? (totalJam - 1) * tarifBerikutnya : 0); //Menghitung total biaya parkir, untuk tarifPertama selalu dikenakan untuk jam pertama (wajib dibayar meskipun hanya parkir sebentar). jika total jam parkir lebih dari 1 jam (totalJam > 1), maka sisa jam setelah jam pertama (totalJam - 1) dikalikan dengan tarifBerikutnya. jika parkir hanya 1 jam atau kurang, maka bagian tambahan tarif berikutnya dianggap 0.
+
+    cout << "\n--- Ringkasan Parkir ---\n";
+    cout << "Jenis kendaraan: " << jenisKendaraan << endl;
+    printf("Waktu masuk   : %02d:%02d\n", jamMasuk, menitMasuk); // Menampilkan waktu masuk kendaraan ke tempat parkir
+    printf("Waktu keluar  : %02d:%02d\n", jamKeluar / 100, jamKeluar % 100);
+    cout << "Durasi parkir : " << totalJam << " jam\n"; // Menampilkan waktu keluar berdasarkan input jamKeluar
+    cout << "Lokasi parkir : " << lokasiParkir << endl;
+    cout << "Total biaya   : Rp " << biayaTotal << endl;
+
+    return 0;
+}
+
+
